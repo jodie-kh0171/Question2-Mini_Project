@@ -55,13 +55,10 @@ export default function DashboardInventory() {
         setIsModalOpen(false);
         setEditingItem(null);
     };
-
-    // Attach the functions to the window object so they can be accessed from the column definition
     useEffect(() => {
         (window as any).deleteItem = handleDeleteItem;
         (window as any).editItem = handleEditItem;
         
-        // Cleanup function to remove the properties when the component unmounts
         return () => {
             delete (window as any).deleteItem;
             delete (window as any).editItem;
